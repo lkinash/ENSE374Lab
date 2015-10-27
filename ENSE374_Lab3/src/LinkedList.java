@@ -62,8 +62,8 @@ public class LinkedList {
 		}
 		else							//if there is a head node in the list then add the new one to the end
 		{
-			end.setNext( new ListElement(le.getData(), null));
-			end = end.getNext(end);
+			end.setNext( new ListElement(le.getData(), null));		//sets a new node le as the next in the list
+			end = end.getNext(end);						//makes the new node the end of the list 
 		}
 		listCount++;  			//increments the list count
 		return;
@@ -80,13 +80,36 @@ public class LinkedList {
 		{
 			temp = temp.getNext(temp);		//the temp is then set to the next node in the list
 		}
-		return temp;						//then the temp is returned to the caller
+		return temp;						//then the temp is returned to the caller, this function assumes that index indicates which node to find, if index is 5 it gets the fifth node
 	}
 
 	public ListElement deleteElement(int index)
 	{
+		if(head == null)				//checks if there is a head node in the list
+			return null;				//returns null if there is not any elements in the list
 		
-		return temp;
+		if (index >  listCount)				//if the index that element is at is less than the number of elements in the list it is not valid 
+			return null;				//thus the function will return a null value
+		
+		temp = head;					//otherwise it will start iterating through the list, first by setting the temp at the head
+		
+		if(index == 0)					//if the index is pointing at the head of the list
+		{
+			head = head.getNext(head);			//sets the head to be the next node 
+			return head;						//then returns the new head value
+		}
+		
+		ListElement cur = new ListElement();		//creates a new node to use as a temperary current value
+		
+		for(int i = 0; i < index; i++)		//then iterating through until it gets to the index, this is done using a for loop
+		{
+			cur = temp;					//the cur is then set to the temp in the list
+			temp = temp.getNext(temp);		//the temp is then set to the next node in the list
+		}
+		
+		cur.setNext(temp.getNext(temp));	//gets rid of the node in between and sets the pointers around it
+		
+		return cur;						//then the temp is returned to the caller, this function assumes that index indicates which node to find, if index is 5 it gets the fifth node
 	}
 	
 	public void printLinkedListTail()			//this method prints the data value in the last element in the list
@@ -104,10 +127,10 @@ public class LinkedList {
 		for(int i = 0; i < listCount-1 ; i++)		//then iterating through until it gets to the index, this is done using a for loop
 		{
 			temp = temp.getNext(temp);		//the temp is then set to the next node in the list
-			System.out.print(" , " + temp.getData());
+			System.out.print(" , " + temp.getData());			//prints out commas between numbers in the list
 		}
 		
-		System.out.println(".");
+		System.out.println(".");				//prints out and end to the line
 		return;
 	}
 }
