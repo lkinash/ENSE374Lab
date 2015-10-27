@@ -2,19 +2,34 @@ import java.util.*;
 
 public class LinkedList {
 
-	private ListElement head = null; 	//this is the creation of a head node for the list
-	private ListElement end = null;		//this is a end node for the list for new nodes to be added
+	private ListElement head;  	//this is the creation of a head node for the list
+	private ListElement end;		//this is a end node for the list for new nodes to be added
+	private int listCount;
 	
-	public static void main(String[] args)
+	
+	public LinkedList()				//linked list constructor 
+	{
+		head = null;		//sets the head to be a null node 
+		end = null;				//sets the last element in the list to be null as well
+		listCount = 0;			//sets the list counter to be null too 
+	}
+	
+	public static void main(String[] args)			//the main of the program
 	{
 		ListElement le = new ListElement();
 
 	}
 
-	public void addElement(ListElement le)
+	public void addElement(ListElement le)			//adds an element to the list
 	{
-		
-		le.setData(5);
+		if(head == null)				//checks if there is a head node in the list
+		{
+			head = le;
+		}
+		else							//if there is a head node in the list then add the new one to the end
+		{
+			end = le;
+		}
 		return;
 	}
 	
