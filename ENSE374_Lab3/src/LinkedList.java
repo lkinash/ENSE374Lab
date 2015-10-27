@@ -26,27 +26,24 @@ public class LinkedList {
 
 		linked.printLinkedListHead();
 		linked.printLinkedListTail();
-		
-		ListElement le2 = new ListElement();
-		le2.setData(67);
-		linked.addElement(le2);
+		le.setData(54);
+		linked.addElement(le);
 
 		linked.printLinkedListHead();
 		linked.printLinkedListTail();
 		
-		ListElement le3 = new ListElement();
-		le3.setData(242);
-		linked.addElement(le3);
-		
-		linked.printLinkedListHead();
-		linked.printLinkedListTail();
-		
-		ListElement le4 = new ListElement();
-		le4.setData(55);
-		linked.addElement(le4);
+		le.setData(67);
+		linked.addElement(le);
 
 		linked.printLinkedListHead();
 		linked.printLinkedListTail();
+		
+		le.setData(97);
+		linked.addElement(le);
+
+		linked.printLinkedListHead();
+		linked.printLinkedListTail();
+		
 		
 		int a = linked.getElement(0).getData();
 		System.out.println(a);
@@ -56,19 +53,17 @@ public class LinkedList {
 
 	public void addElement(ListElement le)			//adds an element to the list
 	{
-		//ListElement setter = new ListElement();
-		
-		//setter = le;
 		
 		if(head == null)				//checks if there is a head node in the list
 		{
-			head = le;				//adds that element to be the head of the list
+			head = new ListElement();				//adds that element to be the head of the list
+			head.setData(le.getData());
 			end = head;				//since there is only one node, it is the head and thus that is the end too 
 		}
 		else							//if there is a head node in the list then add the new one to the end
 		{
-			end.setNext(le);			//sets the pointer so that the next element is the new node 
-			end = le;					//sets it so that the end is now the new element
+			end.setNext( new ListElement(le.getData(), null));
+			end = end.getNext(end);
 		}
 		listCount++;  			//increments the list count
 		return;
@@ -102,7 +97,17 @@ public class LinkedList {
 	
 	public void printLinkedListHead()				//this method prints the data value in the first element in the list
 	{
-		System.out.println("The head of the list contains the value: " + head.getData());		//prints out the data value at the head of the list
+		System.out.print("The head of the list first, the list contains the values: " + head.getData());		//prints out the data value at the head of the list
+		
+		temp = head;
+		
+		for(int i = 0; i < listCount-1 ; i++)		//then iterating through until it gets to the index, this is done using a for loop
+		{
+			temp = temp.getNext(temp);		//the temp is then set to the next node in the list
+			System.out.print(" , " + temp.getData());
+		}
+		
+		System.out.println(".");
 		return;
 	}
 }
