@@ -112,6 +112,7 @@ public class LinkedList {
 		if(index == 0)					//if the index is pointing at the head of the list
 		{
 			head = head.getNext(head);			//sets the head to be the next node 
+			head.setPrevious(null);				//since the previous of the head shoould be null 
 			return head;						//then returns the new head value
 		}
 		
@@ -125,6 +126,13 @@ public class LinkedList {
 		
 		cur.setNext(temp.getNext(temp));	//gets rid of the node in between and sets the pointers around it
 		
+		if(index < listCount)					//if this is not the last node in the list
+		{
+			cur = temp;						//the cur is then set to the temp in the list
+			temp = temp.getNext(temp);		//the temp is then set to the next node in the list
+			temp.setPrevious(cur.getPrevious(cur)); //sets the previous of the next node 
+		}
+		
 		return cur;						//then the temp is returned to the caller, this function assumes that index indicates which node to find, if index is 5 it gets the fifth node
 	}
 	
@@ -133,7 +141,7 @@ public class LinkedList {
 		System.out.print("The tail of the list contains the value: " + end.getData());		//prints out the data value at the end of the list
 		temp = end;
 		
-		for(int i = listCount; i > 0 ; i--)		//then iterating through until it gets to the index, this is done using a for loop
+		for(int i = listCount; i > 1 ; i--)		//then iterating through until it gets to the index, this is done using a for loop
 		{
 			temp = temp.getPrevious(temp);		//the temp is then set to the next node in the list
 			System.out.print(" , " + temp.getData());			//prints out commas between numbers in the list
