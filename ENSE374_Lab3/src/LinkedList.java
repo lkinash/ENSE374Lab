@@ -72,7 +72,7 @@ public class LinkedList {
 		}
 		else							//if there is a head node in the list then add the new one to the end
 		{
-			end.setNext( new ListElement(le.getData(), null));		//sets a new node le as the next in the list
+			end.setNext( new ListElement(le.getData(), null, null));		//sets a new node le as the next in the list
 			end = end.getNext(end);						//makes the new node the end of the list 
 		}
 		listCount++;  			//increments the list count

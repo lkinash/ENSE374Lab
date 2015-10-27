@@ -3,7 +3,7 @@ public class ListElement {
 
 	
 		private ListElement next;			//pointer for the next node
-		private ListElement previous;		//pointer to the last node, to be used in the doubley linked list only 
+		private ListElement previous;		//pointer for the previous node
 		private int data;					//where the data in the node is stored
 		
 		public ListElement( )		//a list element object constructor for nulls
@@ -33,6 +33,17 @@ public class ListElement {
 		public void setNext(ListElement next) 		//a setter for the next element 
 		{
 			this.next = next;			//sets the value of the next element for the node
+			return;
+		}
+		
+		public ListElement getPrevious(ListElement previous) 		//a getter for the previous element
+		{
+			return this.previous;			//gets the previous element in the list
+		}
+		
+		public void setPrevious(ListElement previous) 		//a setter for the previous element 
+		{
+			this.previous = previous;			//sets the value of the previous element for the node
 			return;
 		}
 		
