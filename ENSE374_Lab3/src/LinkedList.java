@@ -46,7 +46,9 @@ public class LinkedList {
 		linked.addElement(le);						//adds the element to the liked list
 
 		linked.printLinkedListHead();				//prints out the list from head to end for the nodes in it so far
-			
+		
+		linked.printLinkedListTail();				//prints out the list from tail to head for the nodes left after the delete
+		
 		System.out.println(linked.getElement(0).getData());		//gets the value of an element and prints it out
 	
 		System.out.println(linked.deleteElement(3).getData());		//deletes an element in the list and prints the value fo the element deleted
@@ -56,6 +58,9 @@ public class LinkedList {
 		System.out.println(linked.deleteElement(0).getData());  //deletes an element in the list and prints the value fo the element deleted
 		
 		linked.printLinkedListHead();				//prints out the list from head to end for the nodes left after the delete
+		
+		linked.printLinkedListTail();				//prints out the list from tail to head for the nodes left after the delete
+		
 		
 		//this portion of the main shows how a typical user might use the program to add and delete and look at elements in the linked list
 		
@@ -72,7 +77,7 @@ public class LinkedList {
 		}
 		else							//if there is a head node in the list then add the new one to the end
 		{
-			end.setNext( new ListElement(le.getData(), null, null));		//sets a new node le as the next in the list
+			end.setNext( new ListElement(le.getData(), null, end));		//sets a new node le as the next in the list
 			end = end.getNext(end);						//makes the new node the end of the list 
 		}
 		listCount++;  			//increments the list count
@@ -125,7 +130,16 @@ public class LinkedList {
 	
 	public void printLinkedListTail()			//this method prints the data value in the last element in the list
 	{
-		System.out.println("The tail of the list contains the value: " + end.getData());		//prints out the data value at the end of the list
+		System.out.print("The tail of the list contains the value: " + end.getData());		//prints out the data value at the end of the list
+		temp = end;
+		
+		for(int i = listCount; i > 0 ; i--)		//then iterating through until it gets to the index, this is done using a for loop
+		{
+			temp = temp.getPrevious(temp);		//the temp is then set to the next node in the list
+			System.out.print(" , " + temp.getData());			//prints out commas between numbers in the list
+		}
+		
+		System.out.println(".");				//prints out and end to the line
 		return;
 	}
 	
