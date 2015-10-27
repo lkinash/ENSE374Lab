@@ -4,6 +4,7 @@ public class LinkedList {
 
 	private ListElement head;  	//this is the creation of a head node for the list
 	private ListElement end;		//this is a end node for the list for new nodes to be added
+	private ListElement temp;		//a tempoaray element to be used as a marker when moving through the list	
 	private int listCount;
 	
 	
@@ -16,7 +17,10 @@ public class LinkedList {
 	
 	public static void main(String[] args)			//the main of the program
 	{
+		LinkedList linked = new LinkedList();
+		
 		ListElement le = new ListElement();
+		
 
 	}
 
@@ -24,18 +28,29 @@ public class LinkedList {
 	{
 		if(head == null)				//checks if there is a head node in the list
 		{
-			head = le;
+			head = le;				//adds that element to be the head of the list
+			end = head;				//since there is only one node, it is the head and thus that is the end too 
 		}
 		else							//if there is a head node in the list then add the new one to the end
 		{
-			end = le;
+			end.setNext(le);			//sets the pointer so that the next element is the new node 
+			end = le;					//sets it so that the end is now the new element
 		}
+		listCount++;  			//increments the list count
 		return;
 	}
 	
-	public ListElement getElement(int index)
+	public ListElement getElement(int index)		//returns an element in its entirety 
 	{
+		if (index >  listCount)				//if the index that element is at is less than the number of elements in the list it is not valid 
+			return null;				//thus the function will return a null value
 		
+		temp = head;					//otherwise it will start iterating through the list, first by setting the temp at the head
+		
+		for(int i = 0; i < index; i++)		//then iterating through until it gets to the index, this is done using a for loop
+		{
+			
+		}
 		return;
 	}
 

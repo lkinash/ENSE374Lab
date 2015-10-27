@@ -34,4 +34,9 @@ public class ListElement {
 			return this.next;			//gets the next element in the list
 		}
 		
+		public ListElement getElement(ListElement element) 		//a getter for a list element
+		{
+			return element;			//gets the element and returns it
+		}
+		
 }
