@@ -13,12 +13,12 @@ public class ListElement {
 			this.previous = null;	//sets the previous pointer to null as well, this will stay null the entire time in the single linked list
 		}
 	
-		public ListElement(int data, ListElement next)		//a list element object constructor for setting things
+		public ListElement(int data, ListElement next, ListElement previous)		//a list element object constructor for setting things
 		{	
 			this.data = data;			//sets the data to the value put in
 			this.next = next;		//sets the next pointer to the value put in
-			this.previous = null;	//sets the previous pointer to null as well, this will stay null the entire time in the single linked list
-		}
+			this.previous = previous;	//sets the previous pointer to the previous node
+			}
 		
 		public void setData( int data ) 		//a setter for the list element object
 		{
