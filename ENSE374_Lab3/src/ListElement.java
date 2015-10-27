@@ -23,4 +23,15 @@ public class ListElement {
 			return this.data ;			//returns the value of the data in the node
 		}
 	
+		public void setNext(ListElement next) 		//a setter for the next element 
+		{
+			this.next = next;			//sets the value of the next element for the node
+			return;
+		}
+		
+		public ListElement getNext(ListElement next) 		//a getter for the next element
+		{
+			return this.next;			//gets the next element in the list
+		}
+		
 }
