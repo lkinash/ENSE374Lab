@@ -18,36 +18,46 @@ public class LinkedList {
 	
 	public static void main(String[] args)			//the main of the program
 	{
-		LinkedList linked = new LinkedList();
+		LinkedList linked = new LinkedList();			//creates a linked list object
 		
-		ListElement le = new ListElement();
-		le.setData(34);
-		linked.addElement(le);
+		ListElement le = new ListElement();				//creates a new list element object
+		
+		le.setData(34);									//sets the data value in the list element created
+		linked.addElement(le);						//adds the element to the liked list
 
-		linked.printLinkedListHead();
-		linked.printLinkedListTail();
-		le.setData(54);
-		linked.addElement(le);
+		linked.printLinkedListHead();				//prints out the list from head to end for the nodes in it so far
+		
+		le.setData(85);									//sets the data value in the list element created
+		linked.addElement(le);						//adds the element to the liked list
 
-		linked.printLinkedListHead();
-		linked.printLinkedListTail();
+		linked.printLinkedListHead();				//prints out the list from head to end for the nodes in it so far
 		
-		le.setData(67);
-		linked.addElement(le);
+		le.setData(23);									//sets the data value in the list element created
+		linked.addElement(le);						//adds the element to the liked list
 
-		linked.printLinkedListHead();
-		linked.printLinkedListTail();
+		linked.printLinkedListHead();				//prints out the list from head to end for the nodes in it so far
 		
-		le.setData(97);
-		linked.addElement(le);
+		le.setData(94);									//sets the data value in the list element created
+		linked.addElement(le);						//adds the element to the liked list
 
-		linked.printLinkedListHead();
-		linked.printLinkedListTail();
+		linked.printLinkedListHead();				//prints out the list from head to end for the nodes in it so far
 		
+		le.setData(12);									//sets the data value in the list element created
+		linked.addElement(le);						//adds the element to the liked list
+
+		linked.printLinkedListHead();				//prints out the list from head to end for the nodes in it so far
+			
+		System.out.println(linked.getElement(0).getData());		//gets the value of an element and prints it out
+	
+		System.out.println(linked.deleteElement(3).getData());		//deletes an element in the list and prints the value fo the element deleted
 		
-		int a = linked.getElement(0).getData();
-		System.out.println(a);
+		linked.printLinkedListHead();				//prints out the list from head to end for the nodes left after the delete
+			
+		System.out.println(linked.deleteElement(0).getData());  //deletes an element in the list and prints the value fo the element deleted
 		
+		linked.printLinkedListHead();				//prints out the list from head to end for the nodes left after the delete
+		
+		//this portion of the main shows how a typical user might use the program to add and delete and look at elements in the linked list
 		
 	}
 
@@ -91,6 +101,7 @@ public class LinkedList {
 		if (index >  listCount)				//if the index that element is at is less than the number of elements in the list it is not valid 
 			return null;				//thus the function will return a null value
 		
+		listCount--;  				//deincrements the list count
 		temp = head;					//otherwise it will start iterating through the list, first by setting the temp at the head
 		
 		if(index == 0)					//if the index is pointing at the head of the list
